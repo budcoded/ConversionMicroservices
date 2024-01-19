@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
     currency-exchange:
         image: budcoded/currency-exchange-service:latest
@@ -11,34 +9,34 @@ services:
         depends_on:
             - naming-server
         environment:
-            eureka.client.service-url.defaultZone: http://naming-server:8761/eureka
-#            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
+#            eureka.client.service-url.defaultZone: http://naming-server:8761/eureka
+            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
 
-#    currency-conversion:
-#        image: budcoded/currency-conversion-service:latest
-#        mem_limit: 700m
-#        ports:
-#            - 8100:8100
-#        networks:
-#            - currency_network
-#        depends_on:
-#            - naming-server
-#        environment:
+    currency-conversion:
+        image: budcoded/currency-conversion-service:latest
+        mem_limit: 700m
+        ports:
+            - 8100:8100
+        networks:
+            - currency_network
+        depends_on:
+            - naming-server
+        environment:
 #            EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
-#            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
-#
-#    api-gateway:
-#        image: budcoded/api-gateway:latest
-#        mem_limit: 700m
-#        ports:
-#            - 8765:8765
-#        networks:
-#            - currency_network
-#        depends_on:
-#            - naming-server
-#        environment:
+            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
+
+    api-gateway:
+        image: budcoded/api-gateway:latest
+        mem_limit: 700m
+        ports:
+            - 8765:8765
+        networks:
+            - currency_network
+        depends_on:
+            - naming-server
+        environment:
 #            EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
-#            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
+            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
 
     naming-server:
         image: budcoded/naming-server:latest
@@ -48,13 +46,13 @@ services:
         networks:
             - currency_network
 
-#    zipkin-server:
-#        image: openzipkin/zipkin:2.23
-#        mem_limit: 700m
-#        ports:
-#            - 9411:9411
-#        networks:
-#            - currency_network
+    zipkin-server:
+        image: openzipkin/zipkin:2.23
+        mem_limit: 700m
+        ports:
+            - 9411:9411
+        networks:
+            - currency_network
 
 networks:
     currency_network:
