@@ -24,10 +24,10 @@ public class CurrencyExchangeController {
 
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
 //    @Retry(name = "currency-exchange", fallbackMethod = "fallbackResponse")
-    @CircuitBreaker(name = "currency-exchange", fallbackMethod = "fallbackResponse")
-    @RateLimiter(name = "currency-exchange")
+//    @CircuitBreaker(name = "currency-exchange", fallbackMethod = "fallbackResponse")
+//    @RateLimiter(name = "currency-exchange")
 // setting different rate limits for different API's
-    @Bulkhead(name = "currency-exchange")
+//    @Bulkhead(name = "currency-exchange")
     public CurrencyExchange retrieveExchange(@PathVariable String from, @PathVariable String to) {
         logger.info("Currency Exchange API call received.");
         CurrencyExchange currencyExchange = currencyExchangeService.retrieveExchange(from, to);
