@@ -39,7 +39,7 @@ pipeline {
         stage ('Build docker image') {
             steps {
                 sh 'docker build -t budcoded/api-gateway:latest ./api-gateway/'
-                sh 'docker build -t budcoded/naming-service:latest ./naming-server/'
+                sh 'docker build -t budcoded/naming-server:latest ./naming-server/'
                 sh 'docker build -t budcoded/currency-exchange-service:latest ./currency-exchange-service/'
                 sh 'docker build -t budcoded/currency-conversion-service:latest ./currency-conversion-service/'
             }
