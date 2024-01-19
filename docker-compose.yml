@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
     currency-exchange:
-        image: budcoded/currency-exchange-service
+        image: budcoded/currency-exchange-service:latest
         mem_limit: 700m
         ports:
             - 8000:8000
@@ -15,7 +15,7 @@ services:
 #            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
 
 #    currency-conversion:
-#        image: budcoded/currency-conversion-service
+#        image: budcoded/currency-conversion-service:latest
 #        mem_limit: 700m
 #        ports:
 #            - 8100:8100
@@ -28,7 +28,7 @@ services:
 #            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
 #
 #    api-gateway:
-#        image: budcoded/api-gateway
+#        image: budcoded/api-gateway:latest
 #        mem_limit: 700m
 #        ports:
 #            - 8765:8765
@@ -41,7 +41,7 @@ services:
 #            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
 
     naming-server:
-        image: budcoded/naming-server
+        image: budcoded/naming-server:latest
         mem_limit: 700m
         ports:
             - 8761:8761
