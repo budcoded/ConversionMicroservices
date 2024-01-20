@@ -26,6 +26,14 @@ spec:
                 -   image: budcoded/currency-exchange-service-k8s:latest
                     imagePullPolicy: Always
                     name: currency-exchange-service-k8s
+                    readinessProbe:
+                        httpGet:
+                            port: 8000
+                            path: /actuator/health/readiness
+                    livenessProbe:
+                        httpGet:
+                            port: 8000
+                            path: /actuator/health/liveness
             restartPolicy: Always
 
 ---

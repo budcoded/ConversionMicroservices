@@ -26,6 +26,12 @@ spec:
                 -   image: budcoded/currency-conversion-service-k8s:latest
                     imagePullPolicy: Always
                     name: currency-conversion-service-k8s
+                    envFrom:
+                        - configMapRef:
+                              name: currency-conversion
+#                    env:
+#                        -   name: CURRENCY_EXCHANGE_URI
+#                            value: http://currency-exchange
             restartPolicy: Always
 
 ---
@@ -46,3 +52,14 @@ spec:
         app: currency-conversion
     sessionAffinity: None
     type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+data:
+    CURRENCY_EXCHANGE_URI: http://currency-exchange
+metadata:
+    name: currency-conversion
+    namespace: default
+
