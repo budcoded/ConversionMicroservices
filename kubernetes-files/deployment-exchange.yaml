@@ -49,6 +49,7 @@ spec:
     ports:
         - port: 8000
           protocol: TCP
+          nodePort: 31001
           targetPort: 8000
     selector:
         app: currency-exchange
