@@ -23,7 +23,9 @@ public class CurrencyExchangeService {
         logger.info("Retrieve Exchange value from {} to {}.", from, to);
         CurrencyExchange currencyExchange = currencyExchangeRepository.findByFromAndTo(from, to);
         String port = environment.getProperty("local.server.port");
-        currencyExchange.setEnvironment(port);
+        String host = environment.getProperty("HOSTNAME");
+        String version = "V1";
+        currencyExchange.setEnvironment(port + " " + version + " " + host);
         return currencyExchange;
     }
 }
