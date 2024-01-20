@@ -7,8 +7,6 @@
     <packaging>pom</packaging>
     <name>Archetype - ConversionMicroservices</name>
     <modules>
-        <module>api-gateway</module>
-        <module>naming-server</module>
         <module>currency-exchange-service</module>
         <module>currency-conversion-service</module>
     </modules>
