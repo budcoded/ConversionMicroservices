@@ -1,8 +1,15 @@
 Currency Exchange Service URL:
-http://localhost:8000/currency-exchange/from/USD/to/INR
+http://192.168.49.2:32206/currency-exchange/from/USD/to/INR
 
 Currency Conversion Service URL:
-http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
-http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
+http://192.168.49.2:32206/currency-conversion-feign/from/USD/to/INR/quantity/10
 
-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
+
+Services on kubernetes:
+1. currency-exchange
+2. currency-conversion
+
+Environment variables automatically created by kubernetes:
+
+CURRENCY_EXCHANGE_SERVICE_HOST  // using to communicate between both
+CURRENCY_CONVERSION_SERVICE_HOST
